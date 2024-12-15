@@ -1,0 +1,44 @@
+patching:
+  slide_path: 'data/raw'
+  save_path: 'data/interim/patches_and_embeds/'
+  model_path: 'model_checkpoints/ctranspath/ctranspath.pth'
+  file_extension: ".ndpi"
+  patch_size: 256
+  batch_size: 24
+  preview_size: 4096
+  edge_threshold: 2
+  white_thresh:
+    - 170
+    - 185
+    - 175
+  black_thresh:
+    - 0
+    - 0
+    - 0
+  calc_thresh:
+    - 40
+    - 40
+    - 40
+  split:
+    - 0
+    - 1
+  resolution_in_mpp: 0.0
+  downscaling_factor: 4.0
+  invalid_ratio_thresh: 0.3
+  exctraction_list: null
+  save_patch_images: true
+  save_tile_preview: false
+
+generation:
+    model_path: 'model_checkpoints/histogpt/histogpt-1b-6k-pruned.pth'
+    save_path: 'data/processed/clinical_reports/'
+    tokenizer_path: 'model_checkpoints/biogpt'
+    patching_model_name: 'ctranspath'
+    length: 256
+    top_k: 40
+    top_p: 0.95
+    temp: 0.7
+
+aggregation:
+    texts_path: 'data/processed/clinical_reports/'
+    save_path: 'data/processed'

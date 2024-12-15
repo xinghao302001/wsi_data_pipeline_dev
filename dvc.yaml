@@ -1,0 +1,18 @@
+stages:
+  generate_wsi_patches_and_embed:
+    cmd: python src/data/generate_wsi_patches_and_embed.py --config config/wsi_data_pipe_config.yml
+    deps:
+    - config/wsi_data_pipe_config.yml
+    - data/raw
+    - src/data/generate_wsi_patches_and_embed.py
+  generate_wsi_text_with_patches_and_prompt_embeds:
+    cmd: python src/data/generate_wsi_texts.py --config config/wsi_data_pipe_config.yml
+    deps:
+    - config/wsi_data_pipe_config.yml
+    - src/data/generate_wsi_texts.py
+  aggregate_all_wsi_texts:
+    cmd: python src/data/aggregate_all_wsi_texts.py --config config/wsi_data_pipe_config.yml
+    deps:
+    - config/wsi_data_pipe_config.yml
+    - data/processed/clinical_reports
+    - src/data/aggregate_all_wsi_texts.py
