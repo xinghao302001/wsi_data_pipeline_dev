@@ -1,0 +1,6 @@
+[cache]
+    type = copy
+[core]
+    remote = my_storage
+['remote "my_storage"']
+    url = /tmp/dvc_storage
