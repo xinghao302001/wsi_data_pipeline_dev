@@ -4,4 +4,4 @@
     remote = my_storage
     autostage = true
 ['remote "my_storage"']
-    url = /tmp/dvc_storage
+    url = ./tmp/dvc_storage
