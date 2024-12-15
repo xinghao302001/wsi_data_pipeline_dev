@@ -1,5 +1,7 @@
 HistoGPT/*
 __pycache__
-data/*
+# data/*
+data/interim/*
+data/processed/*
 model_checkpoints/*
 logs/*
