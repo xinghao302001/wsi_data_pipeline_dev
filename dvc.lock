@@ -1,0 +1,45 @@
+schema: '2.0'
+stages:
+  generate_wsi_patches_and_embed:
+    cmd: python src/data/generate_wsi_patches_and_embed.py --config config/wsi_data_pipe_config.yml
+    deps:
+    - path: config/wsi_data_pipe_config.yml
+      hash: md5
+      md5: db49e3ea758f5989a8bd81a52900d24c
+      size: 930
+    - path: data/raw
+      hash: md5
+      md5: 1463dec60a89ec8f151e1b595cd02536.dir
+      size: 635447581
+      nfiles: 3
+    - path: src/data/generate_wsi_patches_and_embed.py
+      hash: md5
+      md5: 7e2aca4416941f5eb9e5aa5e58cce7a8
+      size: 1518
+  generate_wsi_text_with_patches_and_prompt_embeds:
+    cmd: python src/data/generate_wsi_texts.py --config config/wsi_data_pipe_config.yml
+    deps:
+    - path: config/wsi_data_pipe_config.yml
+      hash: md5
+      md5: db49e3ea758f5989a8bd81a52900d24c
+      size: 930
+    - path: src/data/generate_wsi_texts.py
+      hash: md5
+      md5: bf156f789b67283c3cfa223ac09a676f
+      size: 4406
+  aggregate_all_wsi_texts:
+    cmd: python src/data/aggregate_all_wsi_texts.py --config config/wsi_data_pipe_config.yml
+    deps:
+    - path: config/wsi_data_pipe_config.yml
+      hash: md5
+      md5: db49e3ea758f5989a8bd81a52900d24c
+      size: 930
+    - path: data/processed/clinical_reports
+      hash: md5
+      md5: d234ecbb7d89f8aaafc6cf9373f03614.dir
+      size: 1511
+      nfiles: 3
+    - path: src/data/aggregate_all_wsi_texts.py
+      hash: md5
+      md5: 622f5547943f62ece4b3d90ea33e31bc
+      size: 2462
